@@ -3,6 +3,8 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { TabsPage } from '../pages/tabs/tabs';
 import {ChatsPage} from '../pages/chats/chats';
+import { MomentModule } from "angular2-moment";
+
 @NgModule({
   declarations: [
     MyApp,
@@ -10,7 +12,8 @@ import {ChatsPage} from '../pages/chats/chats';
     ChatsPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    MomentModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
