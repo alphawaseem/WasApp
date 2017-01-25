@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { ChatsPage} from '../chats/chats';
 
 @Component({
   templateUrl: 'tabs.html'
@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 export class TabsPage {
   // this tells the tabs component which Pages
   // should be each tab's root Page
+
+  chats : any = ChatsPage;
 
   constructor() {
 
