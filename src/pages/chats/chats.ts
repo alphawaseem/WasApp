@@ -4,17 +4,15 @@ import { Chat } from "api/models/whatsapp-models";
 import { Chats, Messages } from "api/collections/whatsapp-collections";
  
 @Component({
-  templateUrl: 'chats.html',
+  templateUrl: 'chats.html'
 })
-export class ChatsPage implements OnInit {
-  
-  chats;
+export class ChatsPage {
+  chats: Observable<Chat[]>;
+ 
   constructor() {
- 
   }
- 
+
   ngOnInit() {
-    console.log(this.chats);
     this.chats = Chats
       .find({})
       .mergeMap((chats: Chat[]) =>
@@ -30,7 +28,14 @@ export class ChatsPage implements OnInit {
           )
         )
       ).zone();
-      console.log(this.chats);
   }
-  
+
+  removeChat(chat: Chat): void {
+    this.chats = this.chats.map<Chat[]>(chatsArray => {
+      const chatIndex = chatsArray.indexOf(chat);
+      chatsArray.splice(chatIndex, 1);
+      return chatsArray;
+    });
+  }
+
 }
