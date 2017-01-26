@@ -12,6 +12,14 @@ export class ChatsPage {
   constructor() {
     this.chats = this.findChats();
   }
+
+  removeChat(chat: Chat): void {
+    this.chats = this.chats.map<Chat[]>(chatsArray => {
+      const chatIndex = chatsArray.indexOf(chat);
+      chatsArray.splice(chatIndex, 1);
+      return chatsArray;
+    });
+  }
  
   private findChats(): Observable<Chat[]> {
     return Observable.of([
