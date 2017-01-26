@@ -6,7 +6,7 @@ import { Chats, Messages } from "api/collections/whatsapp-collections";
 @Component({
   templateUrl: 'chats.html'
 })
-export class ChatsPage {
+export class ChatsPage implements OnInit{
   chats: Observable<Chat[]>;
  
   constructor() {
